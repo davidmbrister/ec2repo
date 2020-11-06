@@ -12,7 +12,7 @@
         return (
           <BrowserRouter>
             <div className="root-app-div">
-               <p>Somethinggg to change and show up on server</p> 
+               <p>Somethingg to change and show up on server</p> 
               <Header />
               {/* Course list does not currently take any props, it's the same data for any user at any time */}
             </div>
