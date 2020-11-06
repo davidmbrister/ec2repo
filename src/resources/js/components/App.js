@@ -12,7 +12,7 @@
         return (
           <BrowserRouter>
             <div className="root-app-div">
-              <p>Somethinggg If Everything Is Being Compiled</p>
+              {/* <p>Somethinggg If Everything Is Being Compiled</p> */}
               <Header />
               {/* Course list does not currently take any props, it's the same data for any user at any time */}
             </div>
