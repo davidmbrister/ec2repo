@@ -76025,7 +76025,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-!(function webpackMissingModule() { var e = new Error("Cannot find module './Headgit remote adder'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.js");
 /* harmony import */ var _CourseList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./CourseList */ "./resources/js/components/CourseList.js");
 /* harmony import */ var _Course__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Course */ "./resources/js/components/Course.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -76074,7 +76074,7 @@ var App = /*#__PURE__*/function (_Component) {
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "root-app-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Somethinggg If Everything Is Being Compiled"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(!(function webpackMissingModule() { var e = new Error("Cannot find module './Headgit remote adder'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CourseList__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Somethinggg If Everything Is Being Compiled"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CourseList__WEBPACK_IMPORTED_MODULE_4__["default"], null));
     }
   }]);
 
@@ -76280,6 +76280,37 @@ function Fetch(_ref) {
     data: data
   });
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/Header.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Header.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+// resources/assets/js/components/Header.js
+
+
+
+var Header = function Header() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    className: "navbar navbar-expand-md navbar-light navbar-laravel"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container global-header-style"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    className: "navbar-brand",
+    to: "/"
+  }, "CKEC")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Header);
 
 /***/ }),
 
