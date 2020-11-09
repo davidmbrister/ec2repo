@@ -25,6 +25,7 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
+        "adobe-spectrum-dsp": "^0.1.9",
         "jss-plugin-nested": "^10.4.0",
         "react-jss": "^10.4.0",
         "react-router-dom": "^5.2.0"
