@@ -5,13 +5,12 @@
     import { BrowserRouter, Route, Switch } from 'react-router-dom'
     import Header from './Header'
     import CourseList from './CourseList'
-    import Course from './Course'
-    import {Provider, defaultTheme, Button, Meter} from '@adobe/react-spectrum';
+    import {Provider, darkTheme, Button, Meter} from '@adobe/react-spectrum';
 
     class App extends Component {
       render () {
         return (
-          <Provider theme={defaultTheme}>
+          <Provider theme={darkTheme}>
               <BrowserRouter>
                 <div className="root-app-div">
                   <Header />

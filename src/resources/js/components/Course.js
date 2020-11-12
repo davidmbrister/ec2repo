@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Fetch from "./Fetch";
 import { createUseStyles } from 'react-jss';
-
+import {Provider, defaultTheme, Button, Meter, Text, Bell} from '@adobe/react-spectrum';
 // Ask yourself when packaging modular styles in your styled component:
 // Are these styles all modular? In this case they are. And so could simply be dropped anywhrt and look fine.
 // However, if you need to apply a parent style such as a grid for formatting, then you probably want some custom CSS in a stylesheet
@@ -36,11 +36,24 @@ const useCampCardStyles = createUseStyles({
 })
 
 export default function Course({basicData}) {
-
+  const [details, setDetails] = useState();
   const classes = useCampCardStyles();
+
+  const handleClick = (e) => {
+    return (
+        <Fetch //the render success in here should be an imported component
+        uri={`/api/camps/${e}`} // the data here has already been fetched, but maybe other routes could pracitcally be hit from links on the card
+        renderSuccess={({ data }) => (
+                setDetails(data.description)                
+          )}
+        />
+     )
+     
+    }
 
   return (
     <>
+    <Provider theme={defaultTheme}>
        <div className={classes.card}>
           <div className={classes.cardHeader}>
               <img src="./images/city.jpeg" alt="" />
@@ -51,8 +64,8 @@ export default function Course({basicData}) {
 
             <h4 className={classes.testClass}>{basicData.title}</h4>
                 <p>{basicData.description}</p>
-                    {/* Maybe this triggers a modal with more information */}
-                    {/* Make this a click handler */}
+
+                    <Button id={basicData.id} onPress={() => handleClick(basicData.id)} variant="cta" margin="size-160">Get started</Button>
                     <Fetch //the render success in here should be an imported component
                         uri={"/api/camps/" + basicData.id} // the data here has already been fetched, but maybe other routes could pracitcally be hit from links on the card
                         renderSuccess={({ data }) => (
@@ -62,8 +75,13 @@ export default function Course({basicData}) {
                             </div>
                         )}
                     />
+                     <div>
+                      {details}
+                      </div>
           </div>
+        
         </div>
+      </Provider>
 
     </>
 
