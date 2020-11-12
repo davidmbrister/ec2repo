@@ -50,8 +50,6 @@
 </div>
 </div>
 
-
-
 <!-- Description Field -->
 <div class="form-group col-sm-12 col-lg-8">
     {!! Form::label('description', 'Description:') !!}

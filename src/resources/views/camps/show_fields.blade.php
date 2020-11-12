@@ -19,7 +19,7 @@
 <!-- Description Field -->
 <div class="form-group col-md-6">
     {!! Form::label('description', 'Description:') !!}
-    <p>{{ $camp->description }}</p>
+    <p>{!! $camp->description !!}</p>
 </div>
 
 <!-- Photo Field -->
@@ -43,7 +43,7 @@
 <!-- What Will Student Learn Field -->
 <div class="form-group col-md-6">
     {!! Form::label('what_will_student_learn', 'What Will Student Learn:') !!}
-    <p>{{ $camp->what_will_student_learn }}</p>
+    <p>{!! $camp->what_will_student_learn !!}</p>
 </div>
 
 <!-- Age Group Field -->

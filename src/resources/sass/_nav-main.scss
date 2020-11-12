@@ -1,0 +1,22 @@
+nav {
+  display: flex !important;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: $ckec-orange;
+  color: white;
+}
+
+.nav-links{
+  margin-top: 1em;
+  margin-right: 1em;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 1em;
+}
