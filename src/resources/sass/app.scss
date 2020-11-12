@@ -26,6 +26,11 @@
     column-count: 2;
   }
 } */
+.pop {
+  &:hover{
+    translateX:20px;
+  }
+}
 html {
   font-size: 14px;
 }

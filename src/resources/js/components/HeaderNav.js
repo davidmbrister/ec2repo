@@ -25,7 +25,7 @@ function HeaderNav() {
   return (
      
       <nav> 
-        <h3 class="logo"> Logo </h3>
+        <h3 className="logo"> Logo </h3>
           <ul className="nav-links">
             <Link style={navStyle} to="/calendar">
              <li>Calendar</li>

@@ -10946,6 +10946,10 @@ a.text-dark:focus {
   }
 } */
 
+.pop:hover {
+  translateX: 20px;
+}
+
 html {
   font-size: 14px;
 }
