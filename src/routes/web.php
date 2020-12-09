@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // get rid of this
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->middleware('verified');
 
 Auth::routes();
 

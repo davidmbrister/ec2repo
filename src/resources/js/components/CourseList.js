@@ -15,7 +15,6 @@ import Course from "./Course";
 import {createUseStyles} from 'react-jss';
 
 const useCampCardStyles = createUseStyles({
-
         postGrid: {
         'background-color': 'antiquewhite',
         display: 'grid',
@@ -32,39 +31,17 @@ export default function CourseList () {
     <Fetch
       uri={`/api/camps`}
       renderSuccess={({ data }) => (
-        // Each data goes into a card into a card
-          
           <div className={classes.postGrid}>
-          {
-            
-            data.map(singleCourseData =>
-                  <Course 
-                    key={singleCourseData.id} // React wants unique keys for child components of same type
-                    basicData={singleCourseData} 
-                  />         
-          )}
-
+            {
+              data.map(singleCourseData =>
+                    <Course 
+                      key={singleCourseData.id} // React wants unique keys for child components of same type
+                      basicData={singleCourseData} 
+                    />         
+            )}
           </div>
-          
-        
       )}
-
     />
   );
 }
-/* function CampDetails({ data }) {
-  return (
-    <div className="githubUser">
-      <img
-        src={data.avatar_url}
-        alt={data.login}
-        style={{ width: 200 }}
-      />
-      <div>
-        <h1>{ data.login }</h1>
-        {data.name && <p> {data.name}</p>}
-        {data.location && <p> {data.location}</p>}
-      </div>
-    </div>
-  );
-} */
+
