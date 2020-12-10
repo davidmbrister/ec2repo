@@ -11,7 +11,20 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-        <div id="app"></div>
-        <script src="{{ asset('js/app.js') }}"></script>        
+        <div id="homepage"
+        @auth
+          data-auth="true"
+        @endauth
+        ></div>
+        
+        @auth                  
+          <div id="profile"></div>       
+        @endauth
+       
+        <script src="{{ asset('js/app.js') }}"></script>   
+        <script src="{{ asset('js/home.js') }}"></script>   
+        @auth    
+          <script src="{{ asset('js/profile.js') }}"></script> 
+        @endauth      
     </body>
     </html>
