@@ -21,6 +21,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('camps', 'API\CampController@index');
 Route::get('camps/{id}', 'API\CampController@single');
 
+
+Route::get('events', 'API\EventController@index');
+Route::get('events/{id}', 'API\EventController@single');
+
 //Route::post('cart', 'CartController@store');
 //Route::put('cart/{item}', 'ProjectController@markAsCompleted');
 

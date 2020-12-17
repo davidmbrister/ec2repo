@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Camp
  * @package App\Models
- * @version September 11, 2020, 6:59 pm UTC
+ * @version December 16, 2020, 4:18 pm UTC
  *
+ * @property \App\Models\Event $event
  * @property integer $user_id
  * @property integer $category_id
  * @property string $title
@@ -24,13 +25,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property number $standard_price
  * @property integer $subscriber_count
  * @property string $tags
+ * @property integer $event_id
+ * @property string $start
+ * @property string $end
+ * @property boolean $allDay
  */
 class Camp extends Model
 {
     use SoftDeletes;
 
     public $table = 'camps';
-
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -53,7 +58,11 @@ class Camp extends Model
         'discount_price',
         'standard_price',
         'subscriber_count',
-        'tags'
+        'tags',
+        'event_id',
+        'start',
+        'end',
+        'allDay'
     ];
 
     /**
@@ -76,7 +85,11 @@ class Camp extends Model
         'discount_price' => 'float',
         'standard_price' => 'float',
         'subscriber_count' => 'integer',
-        'tags' => 'string'
+        'tags' => 'string',
+        'event_id' => 'integer',
+        'start' => 'date',
+        'end' => 'date',
+        'allDay' => 'boolean'
     ];
 
     /**
@@ -97,22 +110,22 @@ class Camp extends Model
         'capacity' => 'nullable|integer',
         'discount_price' => 'nullable|numeric',
         'standard_price' => 'required|numeric',
-        'subscriber_count' => 'integer',
+        'subscriber_count' => 'nullable|integer',
         'tags' => 'required|string|max:255',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
-        'deleted_at' => 'nullable'
+        'deleted_at' => 'nullable',
+        'event_id' => 'nullable',
+        'start' => 'required',
+        'end' => 'required',
+        'allDay' => 'required|boolean'
     ];
 
-
-      public function category()
-      {   // any camp belongs to a Category, and it's associated category fields should be accessible by this function
-          return $this->belongsTo('App\Models\Category');
-      }
-
-      public function user()
-      {   // any camp belongs to a Category, and it's associated category fields should be accessible by this function
-          return $this->belongsTo('App\Models\User');
-      }
-
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function event()
+    {
+        return $this->belongsTo(\App\Models\Event::class, 'event_id');
+    }
 }

@@ -52,3 +52,5 @@ Route::resource('coupons', 'CouponController');
 // A single route managed by React Router 
 // will handle the public facing page (unregistered users and parents)
 Route::view('/public/{path?}', 'public');
+
+Route::resource('events', 'EventController');

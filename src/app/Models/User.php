@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 /**
  * Class User
  * @package App\Models
@@ -22,8 +23,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer $role_id
  * @property string $remember_token
  */
-class User extends Model
+class User extends Model implements Authenticatable
 {
+    use AuthenticableTrait;
     use SoftDeletes;
 
     public $table = 'users';

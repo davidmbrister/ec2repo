@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class CampRepository
  * @package App\Repositories
- * @version September 11, 2020, 6:59 pm UTC
+ * @version December 16, 2020, 4:18 pm UTC
 */
 
 class CampRepository extends BaseRepository
@@ -30,7 +30,11 @@ class CampRepository extends BaseRepository
         'discount_price',
         'standard_price',
         'subscriber_count',
-        'tags'
+        'tags',
+        'event_id',
+        'start',
+        'end',
+        'allDay'
     ];
 
     /**

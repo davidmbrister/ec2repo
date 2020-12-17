@@ -4,16 +4,16 @@
   color: black !important;
 }
 
-nav {
+/* nav {
   display: flex !important;
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: #F3901C;
+  background: $ckec-orange;
   color: white;
 }
 
-.nav-links {
+.nav-links{
   margin-top: 1em;
   margin-right: 1em;
   width: 50%;
@@ -25,7 +25,7 @@ nav {
 
 .logo {
   margin-left: 1em;
-}
+} */
 
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
@@ -10929,6 +10929,10 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.logo {
+  margin: 0 0 1em !important;
 }
 
 /* .card-columns {

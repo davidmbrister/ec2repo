@@ -1,57 +1,57 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
-import { Button } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
-import { makeStyles } from '@material-ui/core/styles';
+import {FaBars} from 'react-icons/fa';
+import {
+  Nav,
+  NavbarContainer,
+  NavLogo, 
+  MobileIcon,
+  NavMenu,
+  NavItem, 
+  NavLink,
+  NavBtn,
+  NavBtnLink,
+  BtnWrapper,
+  BtnLoginSignup
+  } from './NavbarElements';
 
-const useButtonStyles = makeStyles({
-  root: {
-    background: 'linear-gradient(45deg, #6574cd 30%, #AB529F 90%)',
-    border: 0,
-    borderRadius: 3,
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white',
-    height: 40,
-    padding: '0 25px',
-  },
-});
-
-function Navbar({auth}) {
-  const navStyle = {
-    color: 'white'
-  };
-  const buttonStyles = useButtonStyles();
-
+const Navbar = ({ auth, toggle }) => {
   return (
-     
-      <nav> 
-        <h3 className="logo"> Logo </h3>
-          <ul className="nav-links">
-            <Link style={navStyle} to="/calendar">
-             <li>Calendar</li>
-            </Link>
-            <Link style={navStyle} to="/news">
-             <li>News</li>
-            </Link>
-            <Link style={navStyle} to="/about">
-             <li>About</li>
-            </Link>
-            {
-              (auth === 'false') 
-              ? 
-              <Box m={2}>
-                <Button className={buttonStyles.root} variant="outlined" color="primary">Sign Up</Button>
-              </Box>
-              :
-              <Box m={2}>
-                <Button className={buttonStyles.root} variant="outlined" color="primary">Profile</Button>
-              </Box>
-            }
-          </ul>
+   <>
+    <Nav>
+      <NavbarContainer>
+        <NavLogo to="/">CKEC</NavLogo>
+        <MobileIcon onClick={toggle}>
+          <FaBars />
+        </MobileIcon>
+        <NavMenu>
+          <NavItem>
+            <NavLink to="camps">Calendar</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink to="calendar">Discover</NavLink>
+          </NavItem>
+         {/*  <NavItem>
+            <NavLink to="services">Services</NavLink>
+          </NavItem>  */}    
+        </NavMenu>
        
-      </nav>
-
-  );
+        {
+        (auth === 'false') 
+        ? 
+        <NavBtn>
+          <NavBtnLink href="/login">Sign in</NavBtnLink>
+        </NavBtn>
+        :
+        <NavBtn>
+          <NavBtnLink to="/profile">Profile</NavBtnLink>
+        </NavBtn>
+        }
+        
+      </NavbarContainer>
+    </Nav>
+   </>
+  )
 }
 
-export default Navbar;
+export default Navbar
+

@@ -43,3 +43,7 @@
     <a href="{{ route('coupons.index') }}"><i class="fa fa-edit"></i><span>Coupons</span></a>
 </li>
 
+<li class="{{ Request::is('events*') ? 'active' : '' }}">
+    <a href="{{ route('events.index') }}"><i class="fa fa-edit"></i><span>Events</span></a>
+</li>
+

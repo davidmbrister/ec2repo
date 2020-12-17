@@ -1,18 +1,19 @@
 <div class="table-responsive">
-    <table class="table" id="camps-table">
-        <thead>
-        <tr>
+  <table class="table" id="camps-table">
+      <thead>
+      <tr>
 
-        <th></th>
-        <th></th>
+      <th></th>
+      <th></th>
 
-        <th>Price</th>
+      <th>Price</th>
 
 
-                <th colspan="3">Action</th>
-            </tr>
-        </thead>
-        <tbody>
+              <th colspan="3">Action</th>
+          </tr>
+      </thead>
+      <tbody>
+      @if($camps) 
         @foreach($camps as $camp)
             <tr>
             <td>{{ $camp->photo }}</td>
@@ -23,7 +24,7 @@
                         {{ $camp->title }}
                     </a>
                 </h2>
-                <div class="text-muted"> {{ $camp->user['name'] }} | {!! $camp->description !!} </div>
+                {{-- <div class="text-muted"> {{ $camp->user['name'] }} | {!! $camp->description !!} </div> --}}
 
                 @if($camp->subscriber_count > 0)
                 Enrolled : {{ number_format($camp->subscriber_count) }}
@@ -51,6 +52,7 @@
                 </td>
             </tr>
         @endforeach
-        </tbody>
-    </table>
+      @endif
+      </tbody>
+  </table>
 </div>

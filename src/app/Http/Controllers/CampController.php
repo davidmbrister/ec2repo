@@ -5,21 +5,24 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateCampRequest;
 use App\Http\Requests\UpdateCampRequest;
 use App\Repositories\CampRepository;
-use App\Http\Controllers\AppBaseController;
+use App\Repositories\EventRepository;
+use App\Http\Controllers\EventBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
 use Auth;
 use App\Models\Category;
 
-class CampController extends AppBaseController
+class CampController extends EventBaseController
 {
     /** @var  CampRepository */
     private $campRepository;
+    /** @var  EventRepository */
 
-    public function __construct(CampRepository $campRepo)
+    public function __construct(CampRepository $campRepo, EventRepository $eventRepo)
     {
-        $this->campRepository = $campRepo;
+      $this->campRepository = $campRepo;
+      parent::__construct($eventRepo);
     }
 
     /**
@@ -33,13 +36,6 @@ class CampController extends AppBaseController
     {
         $camps = $this->campRepository->all();
 
-        // Temporary json fetch API --- move this to an API-related controller
-        if (!(Auth::user())) {
-        $jsonCamps =  $camps->toJson();
-        return $jsonCamps;
-        }
-        $jsonCamps =  $camps->toJson();
-
         return view('camps.index')
             ->with('camps', $camps);
     }
@@ -51,10 +47,10 @@ class CampController extends AppBaseController
      */
     public function create()
     {
-        $categories = Category::all();
-        $input['user_id'] = Auth::user()->id;
-        $camp = null;
-        return view('camps.create')->with('categories', $categories)->with('camp', $camp);
+      $categories = Category::all();
+      $input['user_id'] = Auth::user()->id;
+      $camp = null;
+      return view('camps.create')->with('categories', $categories)->with('camp', $camp);
     }
 
     /**
@@ -66,13 +62,26 @@ class CampController extends AppBaseController
      */
     public function store(CreateCampRequest $request)
     {
-        $input = $request->all();
-        $input['user_id'] = Auth::user()->id;
-        $camp = $this->campRepository->create($input);
+      //dd($request);
+      $input = $request->all();
+      $input['user_id'] = Auth::user()->id;
+      $eventInput = [
+        "title" => $request->title,
+        "start" => $request->start,
+        "end" => $request->end,
+        "allDay" => $request->allDay,
+        "description" => $request->description,
+        "type" => "test",
+    ];
+      // also create the new Event here ?
+      // this class allows the storeEvent method of it's parent, which has access to the Event repository 
+      $input['event_id'] = $this->storeEvent($eventInput);
+      //dd($input);
+      $camp = $this->campRepository->create($input);
 
-        Flash::success('Camp saved successfully.');
+      Flash::success('Camp saved successfully.');
 
-        return redirect(route('camps.index'));
+      return redirect(route('camps.index'));
     }
 
     /**
@@ -105,14 +114,14 @@ class CampController extends AppBaseController
     public function edit($id)
     {
         $camp = $this->campRepository->find($id);
-        $categories = Category::all();
+
         if (empty($camp)) {
             Flash::error('Camp not found');
 
             return redirect(route('camps.index'));
         }
 
-        return view('camps.edit')->with('camp', $camp)->with('categories', $categories);
+        return view('camps.edit')->with('camp', $camp);
     }
 
     /**

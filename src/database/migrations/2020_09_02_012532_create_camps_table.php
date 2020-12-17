@@ -15,7 +15,7 @@ class CreateCampsTable extends Migration
     {
         Schema::create('camps', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->integer('category_id');
             $table->string('title');
             $table->longText('description');
@@ -35,7 +35,16 @@ class CreateCampsTable extends Migration
             $table->string('tags')->isNullable(); //tech, sports, science ... kinda like categories
             $table->timestamps();
             $table->softDeletes();
+            $table->unsignedBigInteger('event_id');
+            $table->foreign('event_id')
+                ->references('id')
+                ->on('events')
+                ->onDelete('cascade');
         });
+
+      /*   Schema::table('camps', function (Blueprint $table) {
+          $table->foreignId('event_id')->constrained();        
+        }); */
     }
 
     /**

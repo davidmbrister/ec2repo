@@ -13,10 +13,8 @@ class CampController extends Controller {
   {
       $camps = Camp::all();
 
-
       $jsonCamps =  $camps->toJson();
-      return $jsonCamps;
-  
+      return $jsonCamps;  
      
   }
 

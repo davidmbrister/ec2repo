@@ -24,6 +24,10 @@ $factory->define(Camp::class, function (Faker $faker) {
         'tags' => $faker->word,
         'created_at' => $faker->date('Y-m-d H:i:s'),
         'updated_at' => $faker->date('Y-m-d H:i:s'),
-        'deleted_at' => $faker->date('Y-m-d H:i:s')
+        'deleted_at' => $faker->date('Y-m-d H:i:s'),
+        'event_id' => null,
+        'start' => $faker->date('Y-m-d H:i:s'),
+        'end' => $faker->date('Y-m-d H:i:s'),
+        'allDay' => 0
     ];
 });

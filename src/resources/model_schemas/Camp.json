@@ -15,7 +15,7 @@
         "name": "user_id",
         "dbType": "integer,false",
         "htmlType": null,
-        "validations": "required|integer|integer",
+        "validations": "integer|integer",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -159,7 +159,7 @@
         "name": "subscriber_count",
         "dbType": "integer,false",
         "htmlType": null,
-        "validations": "required|integer|integer",
+        "validations": "nullable|integer|nullable|integer",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -214,5 +214,57 @@
         "inForm": false,
         "inIndex": false,
         "inView": false
+    },
+    {
+        "name": "event_id",
+        "dbType": "bigInteger,false,true",
+        "htmlType": null,
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "start",
+        "dbType": "date",
+        "htmlType": "date",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "end",
+        "dbType": "date",
+        "htmlType": "date",
+        "validations": "required",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "allDay",
+        "dbType": "boolean",
+        "htmlType": "checkbox,1",
+        "validations": "required|boolean|boolean",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,Event,event_id"
     }
 ]
